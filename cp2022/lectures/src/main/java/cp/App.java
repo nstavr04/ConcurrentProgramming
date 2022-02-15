@@ -1,5 +1,8 @@
 package cp;
 
+import cp.measure.MeasureAnonymousClasses;
+import cp.measure.MeasureDedicatedClasses;
+import cp.measure.MeasureLambda;
 import cp.threads.SynchronizedMap;
 
 /**
@@ -17,6 +20,10 @@ public final class App {
 		// Utils.doAndMeasure( SequentialMap2F::main );
 		// Utils.doAndMeasure( SynchronizedMap2T::main );
 		// SynchronizedMap2TWords.main();
-		SynchronizedMap.main();
+		//SynchronizedMap.main();
+
+		//MeasureDedicatedClasses.main();
+		//MeasureAnonymousClasses.main();
+		MeasureLambda.main();
 	}
 }

@@ -11,6 +11,7 @@ public class MeasureAnonymousClasses {
 	}
 
 	public static void main() {
+		// Here we have the definition of the class right here 
 		Utils.doAndMeasure( new Runnable() {
 			public void run() {
 				System.out.println( "Result: " + summation( 5 ) );
