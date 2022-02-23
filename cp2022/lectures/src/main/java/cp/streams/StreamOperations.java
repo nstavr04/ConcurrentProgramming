@@ -14,6 +14,9 @@ public class StreamOperations {
 		// 	.forEach( System.out::println );
 
 		// Print how many names start with K
+
+		// count() is a terminal operation
+
 		// System.out.println(
 		// 	names.stream().filter( s -> s.startsWith( "K" ) ).count()
 		// );

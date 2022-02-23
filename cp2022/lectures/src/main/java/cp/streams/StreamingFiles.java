@@ -33,6 +33,7 @@ public class StreamingFiles {
 		}
 	}
 
+	// Just put it in the parentheses in try block
 	// Recommended way of managing resources that need to be closed
 	// See https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 	private static void printLinesWithResource( Path path ) {
@@ -69,6 +70,8 @@ public class StreamingFiles {
 					return n;
 				} )
 				// Stream< Integer > 2, 1, 1
+				// To reduce ksekina apo to 0 kai kanei sum ara enonei vasika
+				// olous tous arithmous mazi
 				.reduce( 0, Integer::sum );
 			System.out.println( result );
 		} catch( IOException e ) {
@@ -81,6 +84,7 @@ public class StreamingFiles {
 		try( Stream< String > lines = Files.lines( path ) ) {
 			long result = lines
 				// Stream< String >
+				// flatMap returns a stream of strings of the words
 				.flatMap( line -> Stream.of( line.split( " " ) ) )
 				// "et", "blah", "et", "et", "quoque", "et", "al"
 				// now we have a Stream< String >
@@ -107,6 +111,7 @@ public class StreamingFiles {
 				// { "et" -> 1 }, { "blah" -> 1 }, { "et" -> 1 },
 				// { "et" -> 1 }, { "quoque" -> 1 }, { "et" -> 1 },
 				// { "al" -> 1 }
+				// I want a single map so i want to merge ets together etc
 				.reduce( new HashMap< String, Integer >(), ( m1, m2 ) -> {
 					Map< String, Integer > result = new HashMap<>( m1 );
 					m2.forEach( ( key, value ) -> result.merge( key, value, Integer::sum ) );
