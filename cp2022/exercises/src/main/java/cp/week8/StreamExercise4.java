@@ -34,32 +34,14 @@ public class StreamExercise4
 	// Count how many times the letter "C" occurs
 	private static void countCOccur( Path path ) {
 		
-			// char[] fileString = lines.toString().toCharArray();
-			// 	Stream<char[]> cStream = Stream.of(fileString);
-			// 	long result = cStream
-			// 	.filter(charact -> charact.equals('C'))
-			// 	.mapToInt(s -> s.length)
-			// 	.sum();
-
-			// Make the string into a stream of chars
-			// filter to contain/equal 'C'
-			// Make it an IntStream and get the sum
-			// .flatMap(line -> Stream.of(line.))
-			// .filter(word -> word.equals("C"))
-			// .count();
-			
-			// long result = lines.toString().chars()
-			// 	.filter(c -> c == 67)
-			// 	.count();
 			try( Stream< String > lines = Files.lines( path ) ) {
-			long result = lines
-				.flatMap(line -> Stream.of(line.split(" ")))
-				.filter(c -> c.contains("C") )
-				//.toString()
-				//.chars()
-				.mapToInt(c -> 1)
-				.sum();
-			System.out.println(result);
+
+				int sumofC = lines.mapToInt( s-> {
+					long count = s.chars().filter(ch -> ch == 'C').count();
+					return Math.toIntExact(count);
+				}).sum();
+
+			System.out.println(sumofC);
 		} catch( IOException e ) {
 			e.printStackTrace();
 		}

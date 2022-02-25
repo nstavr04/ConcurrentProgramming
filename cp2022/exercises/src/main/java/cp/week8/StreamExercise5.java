@@ -43,16 +43,12 @@ public class StreamExercise5
 	// Count how many times each character appears in the lines
 	private static void countCharAppearances( Path path ) {
 		try( Stream< String > lines = Files.lines( path ) ) {
-			//long result = lines
-			//	.flatMap(line -> Stream.of(line.split("\n")))
-			//	.map(line -> {
-			//		Map<String>
-			//	})
 			lines
-				.flatMap(line -> Stream.of(line.split(" ")))
+				// This split, splits every char
+				.flatMap(line -> Stream.of(line.split("(?!^)")))
 				.map(word -> {
 					Map<String, Integer> m = new HashMap<>();
-					m.put(word,1);
+					m.put(word.toString(),1);
 					return m;
 				})
 				.reduce( new HashMap< String, Integer >(), ( m1, m2 ) -> {
