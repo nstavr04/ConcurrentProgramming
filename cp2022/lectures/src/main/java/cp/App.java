@@ -4,6 +4,7 @@ import cp.measure.MeasureAnonymousClasses;
 import cp.measure.MeasureDedicatedClasses;
 import cp.measure.MeasureLambda;
 import cp.threads.SynchronizedMap;
+import cp.threads.Counting;
 
 /**
  * Main class (entry point) of the Java Application.
@@ -16,7 +17,7 @@ public final class App {
 	 */
 	public static void main( String[] args ) {
 		// FirstThread.main();
-		// Counting.main();
+		 Counting.main();
 		// Utils.doAndMeasure( SequentialMap2F::main );
 		// Utils.doAndMeasure( SynchronizedMap2T::main );
 		// SynchronizedMap2TWords.main();
@@ -24,6 +25,6 @@ public final class App {
 
 		//MeasureDedicatedClasses.main();
 		//MeasureAnonymousClasses.main();
-		MeasureLambda.main();
+		//MeasureLambda.main();
 	}
 }

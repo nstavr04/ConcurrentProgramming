@@ -44,6 +44,10 @@ public class Counting {
 			t2.join();
 			t3.join();
 			System.out.println( counter.c );
+			// Vlepw oti den athrizei sto 3000.
+			// Giafto thelw otan paei na kanei ++ ena thread
+			// na min epemvenei allo.
+			// Afto to petigxainw me to synchronized
 		} catch( InterruptedException e ) {
 			e.printStackTrace();
 		}

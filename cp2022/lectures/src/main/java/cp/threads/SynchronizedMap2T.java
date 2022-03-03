@@ -30,6 +30,7 @@ public class SynchronizedMap2T {
 		System.out.println( "e -> " + occurrences.get( 'e' ) );
 	}
 
+	// Metrw tis emfaniseis olwn twn xaraktirwn
 	private static void countLetters( Path textPath, Map< Character, Long > occurrences ) {
 		try( Stream< String > lines = Files.lines( textPath ) ) {
 			lines.forEach( line -> {
