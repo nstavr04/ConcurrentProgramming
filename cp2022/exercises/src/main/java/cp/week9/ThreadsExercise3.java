@@ -17,4 +17,17 @@ public class ThreadsExercise3
 	- Does the resulting code perform better or worse than the original example SynchronizedMap2T?
 	- Can you hypothesise why?
 	*/
+	public static void main(String[] args) {
+		SynchronizedMap2TModified.main();
+	}
+
+	/*
+	Answers to the questions
+	- Does the resulting code work? Can you explain why?
+		- It works bcs there is no shared data being handled on different threads.
+	- Does the resulting code perform better or worse than the original example SynchronizedMap2T?
+		- It performs better 
+	- Can you hypothesise why?
+		- Because the program has way less time waiting for access to write and read.
+	*/
 }
