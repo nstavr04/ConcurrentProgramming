@@ -17,7 +17,7 @@ public final class App {
 	 */
 	public static void main( String[] args ) {
 		// FirstThread.main();
-		 Counting.main();
+		// Counting.main();
 		// Utils.doAndMeasure( SequentialMap2F::main );
 		// Utils.doAndMeasure( SynchronizedMap2T::main );
 		// SynchronizedMap2TWords.main();

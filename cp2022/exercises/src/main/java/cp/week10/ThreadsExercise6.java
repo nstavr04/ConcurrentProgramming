@@ -19,4 +19,7 @@ public class ThreadsExercise6
 	to implement it such that each file is processed by a dedicated thread (all threads
 	should run concurrently and be waited for).
 	*/
+	public static void main(String[] args) {
+		SynchronizedMap2TWords.main();
+	}
 }
