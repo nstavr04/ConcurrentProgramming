@@ -23,13 +23,16 @@ public class Words {
 	private static void hardcodedText() {
 		String text = "Hello from the Death Star! Everything is fine over here. We are taking distancing very seriously.";
 		
+		// We have an iterator that breaks into words. The setText is our text.
 		BreakIterator it = BreakIterator.getWordInstance();
 		it.setText( text );
 		
+		// First will be H , next will be space, next f , next space and so on
 		int start = it.first();
 		int end = it.next();
 		while( end != BreakIterator.DONE ) {
 			String word = text.substring( start, end );
+			// Checking that it is a word and not a separator
 			if ( Character.isLetterOrDigit( word.charAt( 0 ) ) ) {
 				System.out.println( word );
 			}

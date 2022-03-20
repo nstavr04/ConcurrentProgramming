@@ -29,7 +29,11 @@ public class SynchronizedMap2TWords {
 
 	private static void computeOccurrences(String filename, Map<String, Integer> occurrences) {
 		try {
-			Files.lines( Paths.get( filename ) ).flatMap( Words::extractWords ).map( String::toLowerCase ).forEach( s -> {
+			Files.lines( Paths.get( filename ) )
+				 .flatMap( Words::extractWords )
+				 // Counting lower and uppercase to same
+				 .map( String::toLowerCase )
+				 .forEach( s -> {
 				synchronized( occurrences ) {
 					occurrences.merge( s, 1, Integer::sum );
 				}
