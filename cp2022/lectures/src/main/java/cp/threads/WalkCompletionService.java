@@ -19,6 +19,8 @@ public class WalkCompletionService
 		// word -> number of times it appears over all files
 		Map< String, Integer > occurrences = new HashMap<>();
 		ExecutorService executor = Executors.newWorkStealingPool();
+
+		// Can help in knowing when the future is completed
 		ExecutorCompletionService< Map< String, Integer > > completionService =
 			new ExecutorCompletionService<>( executor );
 
@@ -30,6 +32,7 @@ public class WalkCompletionService
 						completionService.submit( () -> computeOccurrences( filepath ) )
 					).count();
 			while( pendingTasks > 0 ) {
+				// Take takes a future that has been completed and get gets it
 				Map< String, Integer > fileOccurrences = completionService.take().get();
 				fileOccurrences.forEach( (word, n) -> occurrences.merge( word, n, Integer::sum ) );
 				pendingTasks--;

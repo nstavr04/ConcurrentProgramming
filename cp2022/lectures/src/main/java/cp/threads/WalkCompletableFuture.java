@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class WalkCompletableFuture
+// Here you dont deal with executors
 {
 	public static void main()
 	{
@@ -26,6 +27,7 @@ public class WalkCompletableFuture
 							.thenAccept( fileOccurrences ->
 								fileOccurrences.forEach( (word, n) -> occurrences.merge( word, n, Integer::sum ) )
 							)
+							// thenAccept, as soon as the future is completed execute that lambda
 					).collect( Collectors.toList() ).toArray( new CompletableFuture[0] );
 			CompletableFuture
 				.allOf( futures )

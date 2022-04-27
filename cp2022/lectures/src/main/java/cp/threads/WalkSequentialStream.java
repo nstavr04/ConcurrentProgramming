@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WalkSequentialStream
+// Normal streams without parralelism
 {
 	public static void main()
 	{

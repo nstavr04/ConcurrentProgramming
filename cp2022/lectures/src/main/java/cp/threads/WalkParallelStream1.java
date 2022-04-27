@@ -17,6 +17,11 @@ public class WalkParallelStream1
 		try {
 			Files
 				.walk( Paths.get( "data" ) )
+				// whenever we have stream we can call parallel and java will use the ForkJoinPool.commonPool() which is a work stealing executor
+				// from now on the tasks after eg filter for each etc are not sequential and are in an executor
+				// they can be called in parallel etc and its now a concurrent operation
+
+				// can be improved by getting all the files and then doing concurrency instead of doing it once we get a file every time
 				.parallel()
 				.filter( Files::isRegularFile )
 				.forEach( filepath -> computeOccurrences( filepath, occurrences ) );
